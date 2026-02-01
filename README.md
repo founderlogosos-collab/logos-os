@@ -1,67 +1,35 @@
-﻿# LOGOS OS
+## ?? Quick Start (Local Pilot)
 
-LOGOS OS is a local execution control layer for AI systems.
+### Prerequisites
+- Go 1.21 or later
+- An AI provider API key (OpenAI, Gemini, etc.)
 
-It intercepts outbound model execution, enforces budgets,
-terminates loops, and produces an offline audit trail.
+### 1. Clone the repository
+git clone https://github.com/founderlogosos-collab/logos-os
+cd logos-os
 
-It does not inspect prompts.
-It does not store payloads.
-It does not require cloud connectivity.
+### 2. Purpose of this repository
 
----
+This repository provides:
+- reference interceptor logic
+- execution control patterns
+- audit schemas and standards
 
-## What LOGOS OS Is
+It does NOT start a production server by itself.
 
-- A deterministic execution firewall
-- A local-first control layer
-- An enforcement mechanism for production AI
+### 3. How Logos OS is used in practice
 
----
+Logos OS is embedded or wrapped inside an existing service
+that already handles HTTP or RPC traffic.
 
-## What LOGOS OS Is Not
+Execution flow:
 
-- Not an AI agent framework
-- Not a prompt management tool
-- Not a SaaS dashboard
-- Not a data processor
-- Not a monitoring platform
+Your App ? Logos OS (interceptor) ? AI Provider
 
----
+Logos OS enforces:
+- budget limits
+- loop termination
+- duplicate execution control
+- offline audit logging
 
-## Design Principles
-
-- Intercept execution, not planning
-- No prompt or payload storage
-- Offline-first, fail-open
-- Execution control only
-- CLI and reports over dashboards
-
-See [PRINCIPLES.md](PRINCIPLES.md).
-
----
-
-## Repository Scope
-
-This repository contains:
-
-- Reference interceptor stubs
-- The canonical audit schema
-- Design principles
-
-It does not contain:
-
-- A runnable service
-- An installer
-- A hosted API
-- Any telemetry
-
----
-
-## Status
-
-LOGOS OS is intended to define what
-**production-ready AI execution** means.
-
-Adoption is expected via agencies,
-system integrators, and internal platforms.
+See STANDARD.md for the execution lifecycle.
